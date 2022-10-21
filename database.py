@@ -10,15 +10,15 @@ collection_todo = database.todo
 collection_user = database.user
 
 def todo_serializer(todo) -> dict:
-    return {
-      "id": str(todo["id"]),
-      "title": todo["title"],
-      "description": todo["description"]
-    }
+  return {
+    "id": str(todo["id"]),
+    "title": todo["title"],
+    "description": todo["description"]
+  }
 
 async def db_create_todo(data: dict) -> Union[dict, bool]:
   todo = await collection_todo.insert_one(data)
   new_todo = await collection_todo.find_one({"_id": todo.inserted_id})
   if new_todo:
-      return todo_serializer(new_todo)
+    return todo_serializer(new_todo)
   return False
