@@ -7,4 +7,4 @@ app.include_router(route_todo.router)
 
 @app.get("/", response_model=SuccessMsg)
 def root():
-  return {"message": "Welcom to Fast API"}
+  return {"message": "Welcome to Fast API"}
