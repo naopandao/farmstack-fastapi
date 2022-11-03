@@ -5,8 +5,6 @@ from passlib.context import CryptContext
 from datetime import datetime, timedelta
 from decouple import config
 
-from main import csrf_protect_exception_handler
-
 JWT_KEY = config('JWT_KEY')
 
 class AuthJwtCsrf():
